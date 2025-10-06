@@ -1,1 +1,24 @@
-<p>product-page works!</p>,
+@if(productsResource.isLoading()){
+<div class="flex justify-center items-center h-screen">
+    <span class="loading loading-spinner loading-lg"></span>
+</div>
+}
+@if(productsResource.hasValue()){
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 animate-fadeIn">
+    <figure class="px-10 pt-10">
+        <img src="./assets/images/no-image.jpg" [alt]="productsResource.value().name" class="rounded-xl" />
+    </figure>
+    <div>
+        <h2 class="text-2xl font-bold font-montserrat">{{ productsResource.value().name}}</h2>
+        <div class="divider"></div>
+
+        <p>{{ productsResource.value().description }}</p>
+        <span class="text-xl">${{ productsResource.value().price }}</span>
+        <div>
+            <button class="btn btn-primary">Buy</button>
+            <button class="btn btn-accent">Add to Cart</button>
+        </div>
+        
+    </div>
+</div>
+}

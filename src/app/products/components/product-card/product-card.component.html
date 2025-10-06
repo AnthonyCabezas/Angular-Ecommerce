@@ -1,0 +1,16 @@
+<div class="card bg-base-100 shadow-sm animate-fadeIn hover-zoomIn">
+    <figure class="px-10 pt-10">
+        <img src="./assets/images/no-image.jpg" [alt]="product().name" class="rounded-xl" />
+    </figure>
+    <div class="card-body items-center text-center">
+        <h2 class="card-title font-montserrat text-accent cursor-pointer"> <a
+                [routerLink]="['/product', product().productId ]">{{ product().name}}</a></h2>
+        <p>{{ product().description | slice: 0:70 }}....</p>
+        <span class="text-xl">${{ product().price }}</span>
+
+        <div class="card-actions">
+            <a [routerLink]="['/product', product().productId ]" class="btn btn-primary">More</a>
+            <button class="btn btn-accent">Add to Cart</button>
+        </div>
+    </div>
+</div>
